@@ -51,7 +51,8 @@ fi
 export npm_config_loglevel
 
 # make sure that node exists
-node=`which node 2>&1`
+# Debian uses `nodejs` instead of `node`
+node=`which node 2>&1 || which nodejs 2>&1`
 ret=$?
 if [ $ret -eq 0 ] && [ -x "$node" ]; then
   (exit 0)
